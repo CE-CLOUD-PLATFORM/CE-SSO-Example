@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Protected Page</h1>
+    <p>You are authenticated! Only logged-in users can see this page.</p>
+    
+    <div class="user-info">
+      <h2>User Information</h2>
+      <p><strong>Username:</strong> <%= user.preferred_username %></p>
+      <p><strong>Name:</strong> <%= user.name %></p>
+      <p><strong>Email:</strong> <%= user.email %></p>
+      <p><strong>Roles:</strong> <%= JSON.stringify(user.realm_access.roles) %></p>
+    </div>
+    <div>
+      <button onclick="window.location.href='/logout'" class="button">
+        Logout
+      </button>
+    </div>
+    
+   
+    
+  </div>

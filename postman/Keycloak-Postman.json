@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "9d87f2b9-2d56-494b-b85d-9101cb4d8a38",
+		"name": "Keycloak Auth Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26851311"
+	},
+	"item": [
+		{
+			"name": "1. Get Access Token (Password Grant)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "ce-app",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid profile email",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"10",
+						"98",
+						"0",
+						"213"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"CE-SSO",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "test-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "YOUR_CLIENT_SECRET",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "YOUR_REFRESH_TOKEN",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"10",
+						"98",
+						"0",
+						"213"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"CE-SSO",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. User Info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YOUR_ACCESS_TOKEN"
+					}
+				],
+				"url": {
+					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/userinfo",
+					"protocol": "http",
+					"host": [
+						"10",
+						"98",
+						"0",
+						"213"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"CE-SSO",
+						"protocol",
+						"openid-connect",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "test-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "YOUR_CLIENT_SECRET",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "YOUR_REFRESH_TOKEN",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/logout",
+					"protocol": "http",
+					"host": [
+						"10",
+						"98",
+						"0",
+						"213"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"CE-SSO",
+						"protocol",
+						"openid-connect",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrdWc2c0lqaHRDZURlVEVfLUFyUy0xMVFObTdjZzlKRzUteTFBNVNUck9FIn0.eyJleHAiOjE3NDExNjkzMDIsImlhdCI6MTc0MTE2OTAwMiwianRpIjoiNGQ5M2EyNjEtYjM3Ni00MWVjLTlkMzktOTlmYjdjMmYyY2I0IiwiaXNzIjoiaHR0cDovLzEwLjk4LjAuMjEzOjgwODAvcmVhbG1zL0NFLVNTTyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI0MzdmMDhmZS0xZDk4LTRiMTYtYTVkYy1mODY5NTRlYzIxMzUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJkZW1vIiwic2lkIjoiMDgzY2NmYzgtZmQyNS00NjYxLWI3OTYtNzY1YjAyZDU5MTdkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1jZS1zc28iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlNBRklSRUVOIFRPS0FORUUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiI2NDAxMDE5MiIsImdpdmVuX25hbWUiOiJTQUZJUkVFTiIsImZhbWlseV9uYW1lIjoiVE9LQU5FRSJ9.sHQmmG3pXm9A3PevKz7t6xxqhSpaHe0H_E0PBeQsgeTH1s40_6b9OMxjfuzkqTMwgYh7FbxVYmzuiIsUgcIOibcNJRqtPxHWFIqgLsPmvmhWjX0iUYm4SCpzYJyD9cx6kb9y2LRlGYoWIoGm5LQdA3X7PikGVSCALcC_43wh1FsuvdzvKhfSvzq9BOFc7riQ_vgozcQIekN3tPLq6SSekRSg3INOJCvpi6V5O7cvJS2z8k-zmocBigDIEHW-sS2lgI56KPDEI5VjIHBYCoE7_Jucj9Oxx_yDQJy74lzQsURqt1zTxEdBDKkRG2A03D54Mqq-UEDbuLJpSdyZ2aH2fw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "client_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

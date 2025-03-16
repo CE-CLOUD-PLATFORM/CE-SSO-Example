@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <p>This page is only accessible to users with the 'admin' role.</p>
+    
+    <div class="user-info">
+      <h2>Admin Information</h2>
+      <p><strong>Username:</strong> <%= user.preferred_username %></p>
+      <p><strong>Name:</strong> <%= user.name %></p>
+      <p><strong>Email:</strong> <%= user.email %></p>
+      <p><strong>Roles:</strong> <%= JSON.stringify(user.realm_access.roles) %></p>
+    </div>
+  </div>
