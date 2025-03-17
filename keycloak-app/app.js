@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configure session
 const memoryStore = new session.MemoryStore();
 app.use(session({
-  secret: '<secret>', // Change this
+  secret: 'secret', // Change this
   resave: false,
   saveUninitialized: true,
   store: memoryStore
@@ -29,10 +29,7 @@ const keycloakConfig = {
   "clientId": "ce-app",
   "bearerOnly": false,
   "serverUrl": "https://sso.cloud.ce.kmitl.ac.th/",
-  "realm": "ce-kmitl",
-  "credentials": {
-    "secret": "<Keycloak Secret>" // Change this
-  }
+  "realm": "ce-kmitl"
 };
 
 const keycloak = new Keycloak({ store: memoryStore }, keycloakConfig);

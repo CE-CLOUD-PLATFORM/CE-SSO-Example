@@ -15,10 +15,7 @@ const keycloakConfig = {
   "clientId": "ce-app",
   "bearerOnly": false,
   "serverUrl": "https://10.98.0.213:8080/",
-  "realm": "CE-SSO",
-  "credentials": {
-    "secret": "*********"
-  }
+  "realm": "CE-SSO"
 };
 ```
 ### 3. Running the Application
