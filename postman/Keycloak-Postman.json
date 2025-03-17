@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9d87f2b9-2d56-494b-b85d-9101cb4d8a38",
+		"_postman_id": "8544d215-1aa6-4258-af77-533f9aef7f55",
 		"name": "Keycloak Auth Flow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26851311"
@@ -25,18 +25,8 @@
 							"type": "text"
 						},
 						{
-							"key": "client_secret",
-							"value": "",
-							"type": "text"
-						},
-						{
 							"key": "grant_type",
 							"value": "password",
-							"type": "text"
-						},
-						{
-							"key": "username",
-							"value": "",
 							"type": "text"
 						},
 						{
@@ -48,22 +38,28 @@
 							"key": "scope",
 							"value": "openid profile email",
 							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/token",
-					"protocol": "http",
+					"raw": "https://sso.cloud.ce.kmitl.ac.th/realms/ce-kmitl/protocol/openid-connect/token",
+					"protocol": "https",
 					"host": [
-						"10",
-						"98",
-						"0",
-						"213"
+						"sso",
+						"cloud",
+						"ce",
+						"kmitl",
+						"ac",
+						"th"
 					],
-					"port": "8080",
 					"path": [
 						"realms",
-						"CE-SSO",
+						"ce-kmitl",
 						"protocol",
 						"openid-connect",
 						"token"
@@ -87,12 +83,7 @@
 					"urlencoded": [
 						{
 							"key": "client_id",
-							"value": "test-client",
-							"type": "text"
-						},
-						{
-							"key": "client_secret",
-							"value": "YOUR_CLIENT_SECRET",
+							"value": "ce-app",
 							"type": "text"
 						},
 						{
@@ -102,24 +93,25 @@
 						},
 						{
 							"key": "refresh_token",
-							"value": "YOUR_REFRESH_TOKEN",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwNGMxNTUwMC1hZjJjLTQ3ZDItOWU1Zi0wMjFmM2UzNWZiNTYifQ.eyJleHAiOjE3NDIyMjY0ODcsImlhdCI6MTc0MjIyNDY4NywianRpIjoiOTE3Yzk0ZmMtNDJkNS00NmY4LThhMjgtYTk1YmFkNTNiYTE3IiwiaXNzIjoiaHR0cHM6Ly9zc28uY2xvdWQuY2Uua21pdGwuYWMudGgvcmVhbG1zL2NlLWttaXRsIiwiYXVkIjoiaHR0cHM6Ly9zc28uY2xvdWQuY2Uua21pdGwuYWMudGgvcmVhbG1zL2NlLWttaXRsIiwic3ViIjoiOTgxOWViODUtNjNmZC00NDgzLWFhODQtMGRmNjg1MjgzNmEyIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImNlLWFwcCIsInNpZCI6IjI3OGYwMmRjLTQ4ZTEtNDI0Ny05NDk2LTMyZDA4MGNiYTI5ZiIsInNjb3BlIjoib3BlbmlkIHJvbGVzIGJhc2ljIHdlYi1vcmlnaW5zIGFjciBwcm9maWxlIGVtYWlsIn0.b3vp2hQZQCmnL3P0Uh4mxR_XXbVp2HO5byE3bQpjaSbCjiaDyQmW5h5j2NYxH7fGhAqr66Anvu8yM0tSS9IfTA",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/token",
-					"protocol": "http",
+					"raw": "https://sso.cloud.ce.kmitl.ac.th/realms/ce-kmitl/protocol/openid-connect/token",
+					"protocol": "https",
 					"host": [
-						"10",
-						"98",
-						"0",
-						"213"
+						"sso",
+						"cloud",
+						"ce",
+						"kmitl",
+						"ac",
+						"th"
 					],
-					"port": "8080",
 					"path": [
 						"realms",
-						"CE-SSO",
+						"ce-kmitl",
 						"protocol",
 						"openid-connect",
 						"token"
@@ -132,25 +124,21 @@
 			"name": "3. User Info",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer YOUR_ACCESS_TOKEN"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/userinfo",
-					"protocol": "http",
+					"raw": "https://sso.cloud.ce.kmitl.ac.th/realms/ce-kmitl/protocol/openid-connect/userinfo",
+					"protocol": "https",
 					"host": [
-						"10",
-						"98",
-						"0",
-						"213"
+						"sso",
+						"cloud",
+						"ce",
+						"kmitl",
+						"ac",
+						"th"
 					],
-					"port": "8080",
 					"path": [
 						"realms",
-						"CE-SSO",
+						"ce-kmitl",
 						"protocol",
 						"openid-connect",
 						"userinfo"
@@ -174,34 +162,30 @@
 					"urlencoded": [
 						{
 							"key": "client_id",
-							"value": "test-client",
-							"type": "text"
-						},
-						{
-							"key": "client_secret",
-							"value": "YOUR_CLIENT_SECRET",
+							"value": "ce-app",
 							"type": "text"
 						},
 						{
 							"key": "refresh_token",
-							"value": "YOUR_REFRESH_TOKEN",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwNGMxNTUwMC1hZjJjLTQ3ZDItOWU1Zi0wMjFmM2UzNWZiNTYifQ.eyJleHAiOjE3NDIyMjY1OTEsImlhdCI6MTc0MjIyNDc5MSwianRpIjoiZDk4ZDZjZmQtZjdjYy00MGNiLWJjNWUtZjgwNTEwZjlkMzMyIiwiaXNzIjoiaHR0cHM6Ly9zc28uY2xvdWQuY2Uua21pdGwuYWMudGgvcmVhbG1zL2NlLWttaXRsIiwiYXVkIjoiaHR0cHM6Ly9zc28uY2xvdWQuY2Uua21pdGwuYWMudGgvcmVhbG1zL2NlLWttaXRsIiwic3ViIjoiOTgxOWViODUtNjNmZC00NDgzLWFhODQtMGRmNjg1MjgzNmEyIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImNlLWFwcCIsInNpZCI6IjI3OGYwMmRjLTQ4ZTEtNDI0Ny05NDk2LTMyZDA4MGNiYTI5ZiIsInNjb3BlIjoib3BlbmlkIHJvbGVzIGJhc2ljIHdlYi1vcmlnaW5zIGFjciBwcm9maWxlIGVtYWlsIn0.tbb6w3EZlnNFwICe5YGzQaYDjt6K4vORkbwx4KfqOAKI90DewzJvqS4ZVuCC0ARzQRASE8CrXIxW3L98V5fm1A",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://10.98.0.213:8080/realms/CE-SSO/protocol/openid-connect/logout",
-					"protocol": "http",
+					"raw": "https://sso.cloud.ce.kmitl.ac.th/realms/ce-kmitl/protocol/openid-connect/logout",
+					"protocol": "https",
 					"host": [
-						"10",
-						"98",
-						"0",
-						"213"
+						"sso",
+						"cloud",
+						"ce",
+						"kmitl",
+						"ac",
+						"th"
 					],
-					"port": "8080",
 					"path": [
 						"realms",
-						"CE-SSO",
+						"ce-kmitl",
 						"protocol",
 						"openid-connect",
 						"logout"
@@ -216,7 +200,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrdWc2c0lqaHRDZURlVEVfLUFyUy0xMVFObTdjZzlKRzUteTFBNVNUck9FIn0.eyJleHAiOjE3NDExNjkzMDIsImlhdCI6MTc0MTE2OTAwMiwianRpIjoiNGQ5M2EyNjEtYjM3Ni00MWVjLTlkMzktOTlmYjdjMmYyY2I0IiwiaXNzIjoiaHR0cDovLzEwLjk4LjAuMjEzOjgwODAvcmVhbG1zL0NFLVNTTyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI0MzdmMDhmZS0xZDk4LTRiMTYtYTVkYy1mODY5NTRlYzIxMzUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJkZW1vIiwic2lkIjoiMDgzY2NmYzgtZmQyNS00NjYxLWI3OTYtNzY1YjAyZDU5MTdkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1jZS1zc28iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlNBRklSRUVOIFRPS0FORUUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiI2NDAxMDE5MiIsImdpdmVuX25hbWUiOiJTQUZJUkVFTiIsImZhbWlseV9uYW1lIjoiVE9LQU5FRSJ9.sHQmmG3pXm9A3PevKz7t6xxqhSpaHe0H_E0PBeQsgeTH1s40_6b9OMxjfuzkqTMwgYh7FbxVYmzuiIsUgcIOibcNJRqtPxHWFIqgLsPmvmhWjX0iUYm4SCpzYJyD9cx6kb9y2LRlGYoWIoGm5LQdA3X7PikGVSCALcC_43wh1FsuvdzvKhfSvzq9BOFc7riQ_vgozcQIekN3tPLq6SSekRSg3INOJCvpi6V5O7cvJS2z8k-zmocBigDIEHW-sS2lgI56KPDEI5VjIHBYCoE7_Jucj9Oxx_yDQJy74lzQsURqt1zTxEdBDKkRG2A03D54Mqq-UEDbuLJpSdyZ2aH2fw",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhSTZ6OFpia3gxU2N6RVdVNS03M0x6dlo3ekhDSDhPRk1OUU5jQno1WUpvIn0.eyJleHAiOjE3NDIyMjQ5ODcsImlhdCI6MTc0MjIyNDY4NywianRpIjoiNzgxODZjZWEtODM3Zi00ZDNkLWE4MTUtZTU4MTgxY2YyODJiIiwiaXNzIjoiaHR0cHM6Ly9zc28uY2xvdWQuY2Uua21pdGwuYWMudGgvcmVhbG1zL2NlLWttaXRsIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6Ijk4MTllYjg1LTYzZmQtNDQ4My1hYTg0LTBkZjY4NTI4MzZhMiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImNlLWFwcCIsInNpZCI6IjI3OGYwMmRjLTQ4ZTEtNDI0Ny05NDk2LTMyZDA4MGNiYTI5ZiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1jZS1rbWl0bCIsIm9mZmxpbmVfYWNjZXNzIiwiYWRtaW4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJTQUZJUkVFTiBUT0tBTkVFIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiNjQwMTAxOTIiLCJnaXZlbl9uYW1lIjoiU0FGSVJFRU4iLCJmYW1pbHlfbmFtZSI6IlRPS0FORUUifQ.J8EvsFjRGk3LNO49K7gTIZQt3GiWO3daBHWZi05cvUdvVUH9DW74_cn7gwEnCdVtkBlogRonhc3XUvXnYz13kMpI7tOoHP92pkHdMD_F9d_pWKMWMxeegMQvHR4jhu_T-BkZNGKla-QUn3yUId4On7YJn_tt8tlJyMbX4eY4ILkwJOsgk0eQ7OUJOKuLHInhcFzxI8xE_MIBeGnfGZe4v0szMuXDLI8uIy2WsPvErMSXBJH9HXjRPFWL_fhj7qap8uFS9pGOLF3c0fNMVsF3uZMEr6G7reL3RBlnbCTU00iWUfGtWulIJ7RvhH8vahbd1m9b1uASGwcZk1sKT08ZPA",
 				"type": "string"
 			}
 		]
