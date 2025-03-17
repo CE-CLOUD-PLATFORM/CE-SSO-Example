@@ -14,7 +14,7 @@ Update the Keycloak configuration in `app.js` with your server details:
 const keycloakConfig = {
   "clientId": "ce-app",
   "bearerOnly": false,
-  "serverUrl": "http://10.98.0.213:8080/",
+  "serverUrl": "https://10.98.0.213:8080/",
   "realm": "CE-SSO",
   "credentials": {
     "secret": "*********"
